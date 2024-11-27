@@ -1,6 +1,7 @@
-FROM node:18-alpine
-WORKDIR /app
+FROM node:14
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
 COPY . .
-RUN yarn install--production
-CMD ["node", "src/app.js"]
 EXPOSE 3000
+CMD [ "node", "app.js" ]
